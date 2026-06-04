@@ -1,21 +1,74 @@
+# ── PYTHON ───────────────────────────────────────────────────────────────────
+__pycache__/
 __pycache__
 *.py[cod]
 *$py.class
-*.pdf
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
 
-
-# Virtual Environments
+# ── AMBIENTES VIRTUAIS ───────────────────────────────────────────────────────
 venv/
 .venv/
 env/
 ENV/
+env.bak/
+venv.bak/
 
-# Environment variables
+# ── VARIÁVEIS DE AMBIENTE (SEGURANÇA) ────────────────────────────────────────
 .env
 .env.local
+.env.dev
+.env.test
+.env.prod
 
-# IDEs and Editors
+# ── DADOS E DATASET ──────────────────────────────────────────────────────────
+*.json
+*.sqlite3
+*.db
+
+# ── IDEs E EDITORES ──────────────────────────────────────────────────────────
 .vscode/
 .idea/
 *.swp
 *.swo
+.project
+.pydevproject
+.settings/
+
+# ── SISTEMA OPERACIONAL ──────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ── LOGS E RELATÓRIOS TEMPORÁRIOS ────────────────────────────────────────────
+*.log
+.tox/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypotheses/
+.pytest_cache/

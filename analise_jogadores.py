@@ -229,7 +229,7 @@ def visualizar_analise_semantica(macro_generos, perfis_estatisticas, total_jogad
             pie_sizes.append(count)
             
     ax_pie.pie(pie_sizes, labels=pie_labels, autopct='%1.1f%%', startangle=140, colors=plt.cm.Paired.colors)
-    ax_pie.set_title("Distribuição do Catálogo da Steam por Gênero\n(Sementes + Jaccard Propagation)", fontweight='bold')
+    ax_pie.set_title("Distribuição do Catálogo da Steam por Gênero", fontweight='bold')
 
     # ── Gráfico 2: Perfis Comportamentais dos Jogadores ──
     ax_bar = axs[1]
@@ -258,34 +258,29 @@ def visualizar_analise_semantica(macro_generos, perfis_estatisticas, total_jogad
 
 def executar_analise_comportamental(usuarios, adj):
     """
-    Ponto de entrada do módulo. Substitui o antigo agrupamento Louvain
-    por um Pipeline completo de Data Enrichment (Taxonomia) -> ML de Grafos
-    (Label Propagation / Jaccard) -> Feature Engineering (Perfis).
+    Ponto de entrada do módulo.
     """
-    print("\n" + "="*70)
-    print("🧬 INICIANDO CLASSIFICAÇÃO SEMÂNTICA E PROPAGAÇÃO (JACCARD)".center(70))
-    print("="*70)
+    print("\n" + "-"*50)
+    print(" ANALISE SEMANTICA E PROPAGACAO (JACCARD) ".center(50, '-'))
+    print("-"*50)
     
-    print(f"[1/4] Inicializando Taxonomia Âncora ({len(ANCORAS_GENERO)} jogos)...")
+    print("[1/4] Inicializando taxonomia...")
     
-    print("[2/4] Calculando Similaridade de Jaccard e Propagando Gêneros no Grafo...")
+    print("[2/4] Propagando generos no grafo...")
     mapa_generos, macro_generos, total_jogadores = calcular_jaccard_e_propagar_generos(usuarios, adj)
-    print(f"      - {len(mapa_generos)} jogos classificados com sucesso pela comunidade.")
+    print(f"      OK: {len(mapa_generos)} jogos classificados.")
     
-    print("[3/4] Avaliando bibliotecas e classificando perfis de jogadores...")
+    print("[3/4] Classificando perfis de jogadores...")
     perfis_estatisticas = classificar_perfis_jogadores(usuarios, macro_generos)
     
-    print("[4/4] Resultados e Perfis Identificados:\n")
+    print("[4/4] Resumo de Perfis:\n")
     
-    # Exibir um resumo dos maiores grupos encontrados
     ordenados_por_tamanho = sorted(perfis_estatisticas.items(), key=lambda x: len(x[1]), reverse=True)
     
     for perfil, lista_users in ordenados_por_tamanho[:7]:
-        print(f"🔹 {perfil}: {len(lista_users)} jogadores")
-        # Mostrar exemplo de um jogador do grupo e suas horas
+        print(f" > {perfil}: {len(lista_users)} jogadores")
         exemplo = lista_users[0]
-        print(f"   Ex: Jogador ID {exemplo['user']} (Total: {exemplo['horas_totais']:.1f} horas)")
-        print("-" * 70)
+        print(f"   Ex: ID {exemplo['user']} ({exemplo['horas_totais']:.1f}h)")
         
-    print("\n[!] Renderizando Dashboard de Classificação Semântica...")
+    print("\nGerando dashboard...")
     visualizar_analise_semantica(macro_generos, perfis_estatisticas, total_jogadores)

@@ -1,6 +1,16 @@
 # Relatório Final - Análise em Grafos (Projeto AV3)
 
-Este documento compila a documentação teórica e técnica da aplicação desenvolvida, em conformidade com as exigências do projeto final de Teoria dos Grafos.
+**Instituição:** Universidade de Fortaleza (UNIFOR)  
+**Disciplina:** Resolução de Problemas com Grafos  
+**Turma:** T290-60 (T24CD)  
+**Professor:** Matheus Ferreira  
+
+---
+
+## 👥 Membros da Equipe
+*   **Savas Neto** (Matrícula: 2410432)
+*   **Anderson Viana** (Matrícula: 2410492)
+*   **Paulo Alencar** (Matrícula: 2416507)
 
 ---
 

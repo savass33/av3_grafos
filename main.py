@@ -15,7 +15,7 @@ if __name__ == '__main__':
     adj = construir_grafo(usuarios)
     total_nos = len(adj)
     total_arestas = sum(len(v) for v in adj.values()) // 2
-    print(f"Grafo pronto: {total_nos} jogos, {total_arestas} arestas.")
+    print(f"Grafo pronto: {total_nos} jogos (vértices), {total_arestas} arestas.")
 
     jogo_a = "The Elder Scrolls V Skyrim"
     jogo_b = "Eldevin"
